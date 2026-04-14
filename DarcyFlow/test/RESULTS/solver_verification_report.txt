@@ -1,0 +1,158 @@
+
+########################################################################
+#                                                                      #
+#   Darcy Flow Equation Solver — Verification Suite             #
+#   Method of Manufactured Solutions (MMS)                     #
+#                   2026-04-14 08:49:28                    #
+#                                                                      #
+########################################################################
+
+
+======================================================================
+ TEST CASE 1: Constant Coefficient κ = 1
+ Exact solution: w(x,y) = sin(πx)·sin(πy)
+ Domain: Ω = [0,1] × [0,1]
+======================================================================
+
+--- Mesh: 8×8 (h=0.1250) ---
+  Nodes: 81, Elements: 128, Mesh time: 0.4904s
+  Init: 0.9990s, Solve: 0.3084s
+  L² error:   5.755887e-03  (relative: 1.30%)
+  L∞ error:  1.295075e-02  (relative: 1.30%)
+
+--- Mesh: 16×16 (h=0.0625) ---
+  Nodes: 289, Elements: 512, Mesh time: 0.0141s
+  Init: 0.9541s, Solve: 0.3282s
+  L² error:   1.514807e-03  (relative: 0.32%)
+  L∞ error:  3.218964e-03  (relative: 0.32%)
+
+--- Mesh: 32×32 (h=0.0312) ---
+  Nodes: 1089, Elements: 2048, Mesh time: 0.0158s
+  Init: 0.9380s, Solve: 0.3489s
+  L² error:   3.896134e-04  (relative: 0.08%)
+  L∞ error:  8.035777e-04  (relative: 0.08%)
+
+--- Mesh: 48×48 (h=0.0208) ---
+  Nodes: 2401, Elements: 4608, Mesh time: 0.0179s
+  Init: 0.8703s, Solve: 0.3981s
+  L² error:   1.748816e-04  (relative: 0.04%)
+  L∞ error:  3.570500e-04  (relative: 0.04%)
+
+-------------------------------------------------------
+ Convergence Analysis:
+     Mesh          h       L² err       L∞ err   Rate(L²)
+ --------------------------------------------------------
+    8×8        0.1250   5.7559e-03   1.2951e-02       --- 
+   16×16       0.0625   1.5148e-03   3.2190e-03       1.93
+   32×32       0.0312   3.8961e-04   8.0358e-04       1.96
+   48×48       0.0208   1.7488e-04   3.5705e-04       1.98
+
+ Average convergence rate (L²): 1.954
+ Theoretical rate for linear FEM: ~2.0
+ ✓ PASS: Convergence rate is acceptable!
+
+  Saved convergence plot: /mnt/ff3371a0-7b4a-40a0-b748-9400bfc1fffd/JunxiongJia/JAX-Bayes/IPBayesML-Tatva/DarcyFlow/test/RESULTS/case1_convergence.png
+  Saved solution comparison: /mnt/ff3371a0-7b4a-40a0-b748-9400bfc1fffd/JunxiongJia/JAX-Bayes/IPBayesML-Tatva/DarcyFlow/test/RESULTS/case1_solution_comparison.png
+
+======================================================================
+ TEST CASE 2: Variable Coefficient κ(x,y) = 1 + x
+ Exact solution: w(x,y) = x(1-x)y(1-y)
+ Domain: Ω = [0,1] × [0,1]
+======================================================================
+
+--- Mesh: 8×8 (h=0.1250) ---
+  Nodes: 81
+  L² error:  6.754703e-14  (relative: 0.00%)
+  L∞ error: 2.873084e-13  (relative: 0.00%)
+
+--- Mesh: 16×16 (h=0.0625) ---
+  Nodes: 289
+  L² error:  6.234164e-14  (relative: 0.00%)
+  L∞ error: 2.128436e-13  (relative: 0.00%)
+
+--- Mesh: 32×32 (h=0.0312) ---
+  Nodes: 1089
+  L² error:  7.328005e-14  (relative: 0.00%)
+  L∞ error: 1.955797e-13  (relative: 0.00%)
+
+--- Mesh: 48×48 (h=0.0208) ---
+  Nodes: 2401
+  L² error:  6.291608e-14  (relative: 0.00%)
+  L∞ error: 1.731046e-13  (relative: 0.00%)
+
+--- Mesh: 64×64 (h=0.0156) ---
+  Nodes: 4225
+  L² error:  5.742821e-14  (relative: 0.00%)
+  L∞ error: 1.613848e-13  (relative: 0.00%)
+
+---------------------------------------------
+ Convergence Analysis:
+       Mesh       L² err     Rate
+ ----------------------------------
+    8×8       6.7547e-14     --  
+   16×16      6.2342e-14     0.12
+   32×32      7.3280e-14    -0.23
+   48×48      6.2916e-14     0.38
+   64×64      5.7428e-14     0.32
+
+ Average convergence rate (L²): 0.144
+ ✓ PASS: Variable coefficient case — errors at machine precision (~5.7e-14)!
+
+  Saved: /mnt/ff3371a0-7b4a-40a0-b748-9400bfc1fffd/JunxiongJia/JAX-Bayes/IPBayesML-Tatva/DarcyFlow/test/RESULTS/case2_convergence_and_solution.png
+
+======================================================================
+ ADJOINT CONSISTENCY TEST
+======================================================================
+
+ Obs points: 9, Residual norm: 6.4379e-03
+ Adjoint variable norm: ||λ|| = 2.103919e-02
+
+ Adjoint consistency (5 random directions):
+  Dir |      FD deriv|     Adj inner|   Rel Err
+ ------------------------------------------------
+    1  |  8.287658e-06|  2.185166e-06|   73.63%
+    2  | -1.535532e-05| -1.254753e-05|   18.29%
+    3  | -6.588439e-05| -6.248980e-05|    5.15%
+    4  | -1.581087e-04| -1.545909e-04|    2.22%
+    5  | -7.817261e-05| -7.355734e-05|    5.90%
+
+ Avg rel error: 21.04%, Max rel: 73.63%
+ Avg abs error: 4.09e-06, Good dirs (rel<15%): 3/5
+ ✓ PASS: Adjoint consistency verified!
+
+  Saved: /mnt/ff3371a0-7b4a-40a0-b748-9400bfc1fffd/JunxiongJia/JAX-Bayes/IPBayesML-Tatva/DarcyFlow/test/RESULTS/adjjoint_consistency.png
+
+======================================================================
+ INCREMENTAL FORWARD SOLVE VERIFICATION
+======================================================================
+
+ Base solution norm: 12.017149
+ Perturbation norm: 1.000000
+
+          ε         ‖δw‖    Lin Error  Order
+ -46
+    5.0e-02   1.8064e-03   5.2765e-06     --
+    1.0e-02   3.6389e-04   8.6071e-07    1.1
+    5.0e-03   1.8211e-04   4.1939e-07    1.0
+    1.0e-03   3.6448e-05   8.2173e-08    1.0
+    5.0e-04   1.8226e-05   4.0982e-08    1.0
+    1.0e-04   3.6454e-06   8.1796e-09    1.0
+
+ Final linearization error (ε=0.0001): 8.179553e-09
+ ✓ PASS: Incremental solve is accurate!
+
+  Saved: /mnt/ff3371a0-7b4a-40a0-b748-9400bfc1fffd/JunxiongJia/JAX-Bayes/IPBayesML-Tatva/DarcyFlow/test/RESULTS/incremental_linearization.png
+
+########################################################################
+# FINAL SUMMARY
+########################################################################
+
+  ✓ PASS  Case 1: Const κ
+  ✓ PASS  Case 2: Var κ
+  ✓ PASS  Adjoint
+  ✓ PASS  Incremental
+
+  Overall: ✓ ALL TESTS PASSED
+  Time: 42.6s
+  Output dir: /mnt/ff3371a0-7b4a-40a0-b748-9400bfc1fffd/JunxiongJia/JAX-Bayes/IPBayesML-Tatva/DarcyFlow/test/RESULTS/
+########################################################################

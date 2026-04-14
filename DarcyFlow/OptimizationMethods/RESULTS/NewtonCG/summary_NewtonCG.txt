@@ -1,0 +1,39 @@
+======================================================================
+  OPTIMIZATION SUMMARY
+======================================================================
+
+  Method:              NewtonCG
+  Mesh Resolution:     20 x 20
+  Number of DOFs:      441
+  Number of Obs:       200
+  Noise Level:         0.05
+  Prior theta:         0.1
+  Prior ax:            0.5
+  
+----------------------------------------------------------------------
+  RESULTS
+----------------------------------------------------------------------
+  Initial Loss:       3.4829540505e+03
+  Final Loss:         3.4829540505e+03
+  Loss Reduction:     -0.0000%
+  Total Iterations:   1
+  Elapsed Time:       71.0883 s
+  Final Error L2:     1.1201850458e+00
+  Final Error Max:    1.1317673170e+00
+  Data Residual:      6.5649126081e-01
+  
+----------------------------------------------------------------------
+  OUTPUT FILES
+----------------------------------------------------------------------
+  Iteration Log:      iteration_log_NewtonCG.txt
+  Summary File:       summary_NewtonCG.txt
+  Figures (PDF):
+    - loss_convergence_NewtonCG.pdf
+    - estimate_vs_truth_NewtonCG.pdf
+    - error_convergence_NewtonCG.pdf
+    - true_parameter.pdf
+    - estimated_NewtonCG.pdf
+    - error_field_NewtonCG.pdf
+    - data_fitting_NewtonCG.pdf
+    - gradient_norm_NewtonCG.pdf
+======================================================================

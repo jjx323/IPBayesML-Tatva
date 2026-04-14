@@ -1,0 +1,39 @@
+======================================================================
+  OPTIMIZATION SUMMARY
+======================================================================
+
+  Method:              GradientDescent
+  Mesh Resolution:     20 x 20
+  Number of DOFs:      441
+  Number of Obs:       200
+  Noise Level:         0.05
+  Prior theta:         0.1
+  Prior ax:            0.5
+  
+----------------------------------------------------------------------
+  RESULTS
+----------------------------------------------------------------------
+  Initial Loss:       4.1302654425e+03
+  Final Loss:         1.2146072509e+02
+  Loss Reduction:     97.0593%
+  Total Iterations:   23
+  Elapsed Time:       312.6582 s
+  Final Error L2:     2.6304083997e-01
+  Final Error Max:    4.2702705920e-01
+  Data Residual:      1.1699517315e-01
+  
+----------------------------------------------------------------------
+  OUTPUT FILES
+----------------------------------------------------------------------
+  Iteration Log:      iteration_log_GradientDescent.txt
+  Summary File:       summary_GradientDescent.txt
+  Figures (PDF):
+    - loss_convergence_GradientDescent.pdf
+    - estimate_vs_truth_GradientDescent.pdf
+    - error_convergence_GradientDescent.pdf
+    - true_parameter.pdf
+    - estimated_GradientDescent.pdf
+    - error_field_GradientDescent.pdf
+    - data_fitting_GradientDescent.pdf
+    - gradient_norm_GradientDescent.pdf
+======================================================================

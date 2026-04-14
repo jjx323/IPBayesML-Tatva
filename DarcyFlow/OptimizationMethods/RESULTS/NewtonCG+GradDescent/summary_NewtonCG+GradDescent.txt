@@ -1,0 +1,39 @@
+======================================================================
+  OPTIMIZATION SUMMARY
+======================================================================
+
+  Method:              NewtonCG+GradDescent
+  Mesh Resolution:     20 x 20
+  Number of DOFs:      441
+  Number of Obs:       200
+  Noise Level:         0.05
+  Prior theta:         0.1
+  Prior ax:            0.5
+  
+----------------------------------------------------------------------
+  RESULTS
+----------------------------------------------------------------------
+  Initial Loss:       4.1302654425e+03
+  Final Loss:         1.1843290933e+02
+  Loss Reduction:     97.1326%
+  Total Iterations:   30
+  Elapsed Time:       841.8265 s
+  Final Error L2:     2.5281716025e-01
+  Final Error Max:    3.6940944816e-01
+  Data Residual:      1.1494180796e-01
+  
+----------------------------------------------------------------------
+  OUTPUT FILES
+----------------------------------------------------------------------
+  Iteration Log:      iteration_log_NewtonCG+GradDescent.txt
+  Summary File:       summary_NewtonCG+GradDescent.txt
+  Figures (PDF):
+    - loss_convergence_NewtonCG+GradDescent.pdf
+    - estimate_vs_truth_NewtonCG+GradDescent.pdf
+    - error_convergence_NewtonCG+GradDescent.pdf
+    - true_parameter.pdf
+    - estimated_NewtonCG+GradDescent.pdf
+    - error_field_NewtonCG+GradDescent.pdf
+    - data_fitting_NewtonCG+GradDescent.pdf
+    - gradient_norm_NewtonCG+GradDescent.pdf
+======================================================================

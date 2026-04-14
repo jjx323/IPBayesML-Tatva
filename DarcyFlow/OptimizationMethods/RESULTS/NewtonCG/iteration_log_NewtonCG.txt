@@ -1,0 +1,11 @@
+# Optimization Method: NewtonCG
+# Date: 2026-04-14 17:17:27
+# Mesh: nx=20, num_dofs=441
+# Noise level: 0.05
+# Total observations: 200
+# Prior params: theta=0.100, ax=0.500
+# Elapsed time: 68.0110 seconds
+#
+# iter	loss	rel_change	error_L2	error_max	grad_norm	phase
+#----------------------------------------------------------------------------------------------------
+     1	3.48295405e+03	nan	1.12018505e+00	1.13176732e+00	9.87914077e+04	NewtonCG
